@@ -1,5 +1,5 @@
 .header {
-    background-color: #1d81c3fe;
+    background-color: #103230f0;
     justify-content: space-between;
     display: flex;
 
@@ -7,6 +7,7 @@
     padding-right: 100px;
     align-items: center;
     height: 80px;
+
     /* position: fixed; */
     /* top: 0; */
 
@@ -22,12 +23,14 @@ nav.header a {
     text-decoration: none;
     color: #ffffff;
     margin-left: 20px;
-    transform: translate(5px, 5px);
+    /* transform: translate(5px, 5px); */
+    font-weight: 20px;
+    font-size: 20px;
     /* padding-right: 100px; */
 
 
 }
 
 nav.header a:hover {
-    color: rgb(109, 3, 139);
+    color: rgb(216, 239, 8);
 }

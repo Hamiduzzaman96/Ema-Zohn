@@ -13,7 +13,7 @@ const Cart = ({ cart }) => {
 
   return (
     <div className="cart">
-      <h4>Order Summary</h4>
+      <h2>Order Summary</h2>
       <p>Your Selected Items: {cart.length}</p>
       <p>Total Price: ${totalPrice}</p>
       <p>Total Shipping: ${totalShipping}</p>

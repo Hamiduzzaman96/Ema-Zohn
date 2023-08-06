@@ -3,9 +3,21 @@
     padding: 20px;
     position: sticky;
     top: 0;
+    font-size: 25px;
+
 
 }
 
 div p {
     font-size: 17px;
+
+}
+
+
+.cart h2 {
+    color: rgb(51, 117, 131);
+}
+
+.cart h4 {
+    color: blue;
 }

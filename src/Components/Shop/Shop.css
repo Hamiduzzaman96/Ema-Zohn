@@ -11,9 +11,11 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 45px;
-    background-color: rgb(249, 254, 255);
+    background-color: rgb(51, 117, 131);
     /* overflow: hidden; */
 
 }
 
-.cart-container {}
+.cart-container {
+    background-color: bisque;
+}
