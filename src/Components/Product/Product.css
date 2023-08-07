@@ -11,7 +11,7 @@
     border: 1px solid #95A0A7;
     border-radius: 8px;
     position: relative;
-    background-color: rgb(95, 39, 94);
+    background-color: #3C4235;
     color: white;
 
 
@@ -52,7 +52,7 @@
 }
 
 .btn-cart {
-    background: #e38b07;
+    background: #138496;
     border: 1px solid #95A0A7;
     border-radius: 0px 0px 8px 8px;
     width: 100%;

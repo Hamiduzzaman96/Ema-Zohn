@@ -4,10 +4,13 @@ import "./Cart.css";
 const Cart = ({ cart }) => {
   let totalPrice = 0;
   let totalShipping = 0;
+  let quantity = 0;
   for (const product of cart) {
     totalPrice = totalPrice + product.price;
     totalShipping = totalShipping + product.shipping;
+    quantity = quantity + product.quantity;
   }
+  console.log(cart);
   const tax = (totalPrice * 7) / 100;
   const total = totalPrice + totalShipping + tax;
 
