@@ -19,3 +19,23 @@
 .cart-container {
     background-color: bisque;
 }
+
+.review-button {
+    width: 80%;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px auto;
+    align-items: center;
+    background-color: rgb(7, 81, 133);
+    color: white;
+    font-size: 18px;
+    padding: 25px;
+    border: 0;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.link-to {
+    text-decoration: none;
+}
