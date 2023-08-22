@@ -34,3 +34,11 @@ nav.header a {
 nav.header a:hover {
     color: rgb(216, 239, 8);
 }
+
+@media(max-width:600px) {
+    nav {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+    }
+}

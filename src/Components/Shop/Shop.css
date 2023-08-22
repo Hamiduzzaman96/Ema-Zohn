@@ -5,7 +5,6 @@
 }
 
 
-
 .product-container {
     margin: 50px;
     display: grid;
@@ -38,4 +37,22 @@
 
 .link-to {
     text-decoration: none;
+}
+
+@media (max-width:600px) {
+    .shop-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-right: 20px;
+
+    }
+
+    .product-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 20px;
+
+    }
 }

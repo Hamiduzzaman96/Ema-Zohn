@@ -1,53 +1,60 @@
 import React, { useState } from "react";
-import "./Login.css";
+import "./SignUp.css";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
 import app from "../../Firebase/firebase-config";
 import { Link } from "react-router-dom";
 
 const auth = getAuth(app);
-
-const Login = () => {
+const SignUp = () => {
+  const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [code, setCode] = useState("");
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
     console.log(email, password);
+
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
         setError("");
         event.target.reset();
-        setSuccess("logged in successfully");
+        setSuccess("User has been created successfully");
       })
       .catch((error) => {
+        // const errorCode = error.code;
         const errorMsg = error.message;
+        const errorCode = error.code;
         setError(errorMsg);
+        setCode(errorCode);
         setSuccess("");
+
+        console.error(error);
       });
   };
-
   return (
     <div>
       <section className="bg-gray-50 dark:bg-gray-900">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-          <Link
+          <div
             href="#"
             className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
           >
+            <h3 className="mr-2">Register</h3>
             <img
               className="w-8 h-8 mr-2"
-              src="/src/Components/Image/login.png"
+              src="/src/Components/image/login.png"
               alt="logo"
             />
-            Log in
-          </Link>
+          </div>
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                Sign in to your account
+                Register to your account
               </h1>
               <form
                 className="space-y-4 md:space-y-6"
@@ -63,8 +70,8 @@ const Login = () => {
                     name="email"
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="name@company.com"
-                    required=""
+                    placeholder="name@gmail.com"
+                    required
                   />
                 </div>
                 <div>
@@ -77,7 +84,20 @@ const Login = () => {
                     id="password"
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required=""
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    Confirm password
+                  </label>
+                  <input
+                    type="password"
+                    name="confirm-password"
+                    id="confirm-password"
+                    placeholder="••••••••"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required
                   />
                 </div>
                 <div className="flex items-center justify-between">
@@ -111,15 +131,14 @@ const Login = () => {
                   Sign in
                 </button>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Don’t have an account yet?{" "}
+                  Already have an account ?{" "}
                   <Link
-                    to="/signup"
+                    to="/login"
                     className="font-medium text-primary-600 hover:underline dark:text-primary-500"
                   >
-                    Sign up
+                    log in
                   </Link>
                 </p>
-
                 <p className="text-red-500">{error}</p>
                 <p className="text-green-600">{success}</p>
               </form>
@@ -127,8 +146,28 @@ const Login = () => {
           </div>
         </div>
       </section>
+      {/* <h4>Please Register to your dream site</h4>
+  <form>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="Enter your Email"
+      required
+    />
+    <br />
+    <input
+      type="password"
+      name="password"
+      id="password"
+      placeholder="Enter your Password"
+      required
+    />{" "}
+    <br />
+    <input type="submit" value="Register" />
+  </form> */}
     </div>
   );
 };
 
-export default Login;
+export default SignUp;
